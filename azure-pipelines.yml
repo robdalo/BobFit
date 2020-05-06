@@ -19,5 +19,5 @@ steps:
 - script: dotnet test
   displayName: "Test"
 
-- script: dotnet publish $(Agent.BuildDirectory)/BobFit/BobFit.Api/BobFit.Api.csproj -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
+- script: dotnet publish $(Build.SourcesDirectory)/BobFit.Api/BobFit.Api.csproj -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
   displayName: "Package"
