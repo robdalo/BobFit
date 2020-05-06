@@ -18,4 +18,6 @@ steps:
 
 - script: dotnet test
   displayName: "Test"
-  
+
+- script: dotnet publish BobFit.Api\*.csproj -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
+  displayName: "Package"
