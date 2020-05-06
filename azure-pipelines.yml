@@ -21,3 +21,7 @@ steps:
 
 - script: dotnet publish $(Build.SourcesDirectory)/BobFit.Api/BobFit.Api.csproj -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
   displayName: "Package"
+
+- task: PublishBuildArtifacts@1
+  displayName: "Publish"
+  
