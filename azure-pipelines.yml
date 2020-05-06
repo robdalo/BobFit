@@ -19,9 +19,13 @@ steps:
 - script: dotnet test
   displayName: "Test"
 
-- script: dotnet publish $(Build.SourcesDirectory)/BobFit.Api/BobFit.Api.csproj -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
+- task: DotNetCoreCLI@2
   displayName: "Package"
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: BobFit.Api/*.csproj
+    arguments: "--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)"
 
 - task: PublishBuildArtifacts@1
   displayName: "Publish"
-  
