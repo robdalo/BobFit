@@ -16,8 +16,11 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: "Build"
 
-- script: dotnet test
+- task: DotNetCoreCLI@2
   displayName: "Test"
+  inputs:
+      command: test
+      projects: "**/*Tests/*.csproj"
 
 - task: DotNetCoreCLI@2
   displayName: "Package"
