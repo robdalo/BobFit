@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BobFit.Api.SDK.Tests.Integration.Consumers
 {
-    [Ignore("")]
+    [TestFixture, Ignore("")]
     public class ApiConsumerTests
     {
         private IConfiguration _configuration;
@@ -25,7 +25,7 @@ namespace BobFit.Api.SDK.Tests.Integration.Consumers
             _apiConsumer = new ApiConsumer(_apiConsumerConfig);
         }
 
-        [Test]
+        [Test, Ignore("")]
         public void GetActivities_ReturnsOneOrMore()
         {
             var activities = _apiConsumer.GetActivities();
