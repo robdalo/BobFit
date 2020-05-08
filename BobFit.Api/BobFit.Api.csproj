@@ -9,4 +9,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BobFit.Api.DataAccess\BobFit.Api.DataAccess.csproj" />
+    <ProjectReference Include="..\BobFit.Api.Domain\BobFit.Api.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
