@@ -1,3 +1,4 @@
+using BobFit.Api.Core.Startup;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,6 +21,11 @@ namespace BobFit.Api
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var mongoConnectionString = _configuration["MongoConnectionString"];
+            var dependencyInjector = new DependencyInjector(mongoConnectionString);
+
+            dependencyInjector.Configure(services);
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(opt => {
                     opt.Audience = _configuration["ResourceId"];

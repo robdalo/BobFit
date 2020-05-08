@@ -12,6 +12,8 @@
   <ItemGroup>
     <ProjectReference Include="..\BobFit.Api.DataAccess\BobFit.Api.DataAccess.csproj" />
     <ProjectReference Include="..\BobFit.Api.Domain\BobFit.Api.Domain.csproj" />
+    <ProjectReference Include="..\BobFit.Api.Core\BobFit.Api.Core.csproj" />
+    <ProjectReference Include="..\BobFit.Api.SDK\BobFit.Api.SDK.csproj" />
   </ItemGroup>
 
 </Project>

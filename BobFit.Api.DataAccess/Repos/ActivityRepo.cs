@@ -1,5 +1,7 @@
 using BobFit.Api.Domain.Models;
 using MongoDB.Driver;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BobFit.Api.DataAccess.Repos
 {
@@ -31,6 +33,14 @@ namespace BobFit.Api.DataAccess.Repos
 
             return activity;
         }
+        
+        public List<Activity> Get()
+        {
+            var database = _mongoClient.GetDatabase(DatabaseName);
+            var collection = database.GetCollection<Activity>(CollectionName);
+
+            return collection.AsQueryable().ToList();
+        }
 
         public void Remove(Activity activity)
         {
@@ -38,6 +48,14 @@ namespace BobFit.Api.DataAccess.Repos
             var collection = database.GetCollection<Activity>(CollectionName);
 
             collection.DeleteOne(a => a.Id == activity.Id);
+        }
+
+        public void Remove(int id)
+        {
+            var database = _mongoClient.GetDatabase(DatabaseName);
+            var collection = database.GetCollection<Activity>(CollectionName);
+
+            collection.DeleteOne(a => a.Id == id);
         }
     }
 }
